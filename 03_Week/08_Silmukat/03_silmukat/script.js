@@ -6,7 +6,7 @@ function averageSpeed() {
       console.log("Ohejelma lopetettu");
       break;
     }
-    //Jos ei ole luku tai negatiivinen
+    //Jos ei ole luku tai negatiivinen.
     if (isNaN(distance) || distance < 0) {
       alert("Syötä kelvollinen etäisyys.");
       //Palaa silmukan alkuun
