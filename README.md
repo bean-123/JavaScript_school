@@ -22,3 +22,4 @@ function fancyAlert(arg){
 ```
 
 # JavaScript_school
+# JavaScript_school
