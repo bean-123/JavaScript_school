@@ -1,10 +1,10 @@
 function createWordPyramid() {
   let word = "koodi";
-  let letter = word[0];
+  let sliced = "";
 
-  while (letter < word) {
-    console.log(letter);
-    letter++;
+  for (let x = 0; x < word.length; x++) {
+    sliced += word[x];
+    console.log(sliced);
   }
 }
 

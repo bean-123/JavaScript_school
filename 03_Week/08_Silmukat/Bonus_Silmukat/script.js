@@ -1,18 +1,40 @@
-function countEvenNumbers() {
-  let evenCount = 0;
+function allTripsAverageSpeed() {
+  let totaldistance = 0;
+  let totaltime = 0;
 
-  for (let x = 0; x < 20; x++) {
-    let input = prompt(`Syötä luku ${x + 1}/20`);
-    let number = parseInt(input);
+  while (true) {
+    let distance = parseFloat(
+      prompt("Please insert a distance, 0 will end the program: ")
+    );
 
-    //Checks that it is a valid number and that it is even
-    if (!isNaN(number) && number % 2 === 0) {
-      evenCount++;
+    if (distance === 0) {
+      console.log("End of the program.");
+      break;
     }
+
+    if (isNaN(distance) || distance < 0) {
+      alert("Please insert correct distance: ");
+      continue;
+    }
+
+    let time = parseFloat(prompt("Please insert a time: "));
+
+    if (isNaN(time) || time < 0) {
+      alert("Please insert correct time: ");
+      continue;
+    }
+    totaldistance += distance;
+    totaltime += time;
   }
-  console.log(`Parillisia lukuja: ${evenCount}`);
+
+  if (totaltime > 0) {
+    let averageSpeed = totaldistance / totaltime;
+    console.log(`Kaikkien matkujen yhteenlaskettu nopeus: ${averageSpeed}km/h`);
+  } else {
+    console.log("Ei matkoja syötetty.");
+  }
 }
-countEvenNumbers();
+allTripsAverageSpeed();
 
 /* 
 Muokkaa harjoituksen 4 (tehty opettajan kanssa) ohjelmaa niin, että 
