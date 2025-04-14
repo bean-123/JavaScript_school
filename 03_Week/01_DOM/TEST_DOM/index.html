@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 2</title>
+  </head>
+  <body>
+    <h1>Testing different events</h1>
+    <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <p
+        ondragstart="dragstart(event)"
+        ondrag="dragging(event)"
+        draggable="true"
+        id="dragtarget"
+      >
+        DRAG ME NOW
+      </p>
+    </div>
+    <script src="/TEST_DOM/script.js"></script>
+    <link rel="stylesheet" href="/TEST_DOM/style.css" />
+  </body>
+</html>
+
+<!--DOESNT WORK FIXXX--->
