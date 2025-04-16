@@ -1,7 +1,8 @@
 function changeText() {
   let change1 = document.getElementById("text1");
+
   if (change1.innerHTML === "Hello World!") {
-    change1.innerHTML = "Bye World!";
+    change1.innerHTML = " ";
   } else {
     change1.innerHTML = "Hello World!";
   }
