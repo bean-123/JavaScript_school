@@ -20,3 +20,24 @@ Kirjoita JavaScript-koodi, joka:
 - Vaihtaa taustavärin satunnaiseksi, kun painiketta klikataan.
 - Päivittää kappaleen tekstivärin vastaamaan käyttäjän syöttämää arvoa.
 */
+
+/* EXAMPLE 2 (need to just change html, take onClick away and give just id for them that you use)
+
+const backgroundBTN = document.getElementById("backgroundcolor")
+const textColorInput = document.getElementById("textColor")
+const paragraph = document.getElementById("text")
+
+function changeBackgroundColor(){
+  const r = Math.floor(Math.random() * 256)
+  const g = Math.floor(Math.random() * 256)
+  const b = Math.floor(Math.random() * 256)
+  document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+}
+backgroundBTN.addEventListener("click", changeBackgroundColor) // these will trigger the function
+
+function changeTextColor(){
+  paragraph.style.color = textColorInput.value //it makes the paragraph the input color
+}
+textColorInput.addEventListener("input", changeTextColor) // these will trigger the function
+
+*/

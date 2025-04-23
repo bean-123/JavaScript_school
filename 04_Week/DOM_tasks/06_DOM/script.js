@@ -8,8 +8,6 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
     //tarkista onko tyhjiä kenttiä
     event.preventDefault(); // Estetään lomakkeen lähetys
     errorMessage.textContent = "Täytä nimi että sähköposti!";
-  } else {
-    errorMessage.textContent = ""; // If both fields have values, we clear the error message n send the form
   }
 });
 
@@ -17,4 +15,20 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
 Kirjoita JavaScript-koodi, joka:
 - Estää lomakkeen lähetyksen, jos jompikumpi kenttä on tyhjä.
 - Näyttää virheilmoituksen, jos kenttiä on tyhjänä.
+*/
+
+/* EXAMPLE 2 which is kinda same but u just make the function more clearer
+
+function sendForm(event){
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  
+  if (name === "" || email === ""){
+  event.preventDefault();
+    document.getElementById("errorMessage").textContent = "Täytä nimi että sähköposti!";
+  } 
+}
+
+document.getElementById("myForm").addEventListener("submit", sendForm)
+
 */
