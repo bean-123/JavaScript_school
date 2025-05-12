@@ -315,27 +315,118 @@ function renderPosts() {
 }
 renderPosts();
 
+/* EXAMPLE 2:
+const postsElement = document.getElementById("posts")
+
+const renderPosts = (posts) => {
+  postsElement.innerHTML="";
+  posts.forEach((post,index)=>{
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>${post.title}</strong>: ${post.content}
+    <button data-id="${index}">Tykkää (${post.likes})</button>`;
+    postsElement.appendChild(li);
+    })
+  }
+
+postsElement.addeventListener("click", (e) => {
+  if (e.target.tagName==="BUTTON"){
+  const index = e.target.getAttribute("data-id");
+  posts[index].likes++;
+  renderPosts(posts)
+  }
+  })
+  renderPosts(posts)
+
+*/
+
 /* Tehtävä 12
 Luo konstruktori-funktio `Employee`, jolla on `name`, `position` ja `salary`.
 Lisää metodi `increaseSalary(percent)`, joka kasvattaa palkkaa annetulla prosentilla.
 Luo työntekijä ja nosta hänen palkkaansa dynaamisesti.
 */
 
-// Kirjoita koodisi tähän
+class Employee {
+  constructor(name, position, salary) {
+    this.name = name;
+    this.position = position;
+    this.salary = salary;
+  }
+  increaseSalary(precentage) {
+    this.salary *= precentage;
+  }
+
+  getInfo() {
+    console.log(
+      `${this.name} - ${this.position}, Salary: €${this.salary.toFixed(2)}`
+    );
+  }
+}
+
+const employee = new Employee("Amy", "Manager", 3000);
+employee.getInfo();
+employee.increaseSalary(1.15);
+employee.getInfo();
 
 /* Tehtävä 13
 Luo olio `timer`, jolla on `seconds` ja metodi `start()`, joka laskee sekunteja ylöspäin.
 Näytä ajastin HTML-elementissä ja päivitä se sekunnin välein.
 */
 
-// Kirjoita koodisi tähän
+const timer = {
+  seconds: 0,
+  intervalId: null,
+  start() {
+    if (this.intervalId !== null) return;
+    //joka sekunnin välein lisätään 1 sekuntti
+    this.intervalId = setInterval(() => {
+      this.seconds++;
+      document.getElementById("timer").textContent = this.seconds;
+    }, 1000);
+  },
+
+  stop() {
+    clearInterval(this.intervalId);
+    this.intervalId = null;
+  },
+};
+
+document.getElementById("start").addEventListener("click", () => {
+  console.log("Start button clicked");
+  timer.start();
+});
+
+document.getElementById("stop").addEventListener("click", () => {
+  timer.stop();
+});
 
 /* Tehtävä 14
 Luo konstruktori-funktio `Book`, joka ottaa parametreina `title`, `author` ja `pages`.
 Luo yksinkertainen kirjastosovellus, jonka avulla käyttäjät voivat lisätä kirjoja HTML-lomakkeen kautta ja näyttää ne dynaamisesti.
 */
 
-// Kirjoita koodisi tähän
+class Book {
+  constructor(nimi, kirjailija, sivut) {
+    this.nimi = nimi;
+    this.kirjailija = kirjailija;
+    this.sivut = sivut;
+  }
+}
+
+document.getElementById("bookForm").addEventListener("submit", (e) => {
+  //aina jos on submit, tee prevent default
+  e.preventDefault();
+  const title = document.getElementById("nimi").value;
+  const author = document.getElementById("kirjailija").value;
+  const pages = document.getElementById("sivut").value;
+
+  const book = new Book(title, author, pages);
+
+  const li = document.createElement("li");
+  li.textContent = `${book.nimi} by ${book.kirjailija}, ${book.sivut} sivua`;
+  document.getElementById("books").appendChild(li);
+
+  e.target.reset();
+});
 
 /* Tehtävä 15
 Luo olio `foxTracker`, jolla on `foxes`-taulukko.
@@ -343,4 +434,23 @@ Lisää syöttökenttä ja painike, joiden avulla käyttäjät voivat lisätä u
 Näytä kettujen lista dynaamisesti HTML-elementissä.
 */
 
-// Kirjoita koodisi tähän
+const foxTracker = {
+  foxes: [],
+};
+
+document.getElementById("addFox").addEventListener("click", () => {
+  const name = document.getElementById("name").value;
+  const location = document.getElementById("loc").value;
+
+  if (name && location) {
+    foxTracker.foxes.push({ name, loc });
+
+    const li = document.createElement("li");
+    li.textContent = `${name} @ ${location}`;
+    document.getElementById("foxes").appendChild(li);
+
+    //emptying the input after
+    document.getElementById("name").value = "";
+    document.getElementById("loc").value = "";
+  }
+});
