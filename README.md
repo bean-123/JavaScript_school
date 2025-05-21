@@ -1,4 +1,4 @@
-# Iso
+# JavaScript tasks
 
 ## Pieni
 
