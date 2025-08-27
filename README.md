@@ -1,4 +1,7 @@
-# JavaScript School – Tasks Repository
+[![Language](https://img.shields.io/badge/language-JavaScript-yellow)](https://www.javascript.com/) 
+[![Language](https://img.shields.io/badge/language-HTML/CSS-orange)](https://developer.mozilla.org/en-US/docs/Web) 
+
+# 🌟 JavaScript School – Tasks Repository
 
 Welcome to the JavaScript School repository! This collection houses a series of JavaScript tasks and exercises completed during my studies at Business College Helsinki. The tasks span multiple weeks, each focusing on different aspects of JavaScript programming, from basic syntax to more advanced concepts.
 
